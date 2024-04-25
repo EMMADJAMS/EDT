@@ -74,6 +74,8 @@ export async function POST(req: Request) {
       WHERE externalId=${id};`
     }
   }
+
+  getClerk();
  
   console.log(`Webhook with and ID of ${id} and type of ${eventType}`)
   console.log('Webhook body:', body)
