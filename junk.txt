@@ -1,0 +1,52 @@
+const [id,setid]=useState('')
+  const [name,setname]=useState('')
+  const [lastname,setlastname]=useState('')
+  const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Prepare address data
+    const addressData = {
+      id,
+      name,
+      lastname,
+    }
+
+    // Send data to API route (replace with your API route path)
+    const response = await fetch('/api/combine-address', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(addressData),
+    });
+
+    const data = await response.json();
+    
+
+  return (
+    <div className="w-2/3 mx-auto my-10">
+      <form
+      onSubmit={handleSubmit} 
+      className="flex flex-col relative border border-black p-5">
+        <h2 className="text-xl font-bold mb-5 text-center">form</h2>
+        <label htmlFor="id">n:</label>
+        <input type="text" 
+        value={id}
+        onChange={(e) =>setid(e.target.value)}
+        className="mb-3 border w-2/3 border-black" />
+        <label htmlFor="name">Title:</label>
+        <input type="text" 
+        value={name}
+        onChange={(e) =>setname(e.target.value)}
+        className="mb-3 border w-2/3 border-black" />
+        <label htmlFor="lastname">Title:</label>
+        <input type="text" 
+        value={lastname}
+        onChange={(e) =>setlastname(e.target.value)}
+        className="mb-3 border w-2/3 border-black" />
+        <button type="submit" className=" border bg-blue-950 mb-5 text-white">submit</button>
+      </form>
+      <p>{id}</p>
+      <p>{name}</p>
+      <p>{lastname}</p>
+    </div>
+  );
+}

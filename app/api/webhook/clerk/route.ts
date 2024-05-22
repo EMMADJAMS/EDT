@@ -62,20 +62,21 @@ export async function POST(req: Request) {
 
  const a = JSON.stringify(attributes)
   
-  const getClerk= async () =>{
+  /*const getClerk= async () =>{
     const client = await setClient()
-    let sl =await client.sql`SELECT externalId FROM User`
+    let sl =await client.query(`SELECT externalId FROM User`)
 
     if(!sl){
-      await client.sql`INSERT INTO your_table_name (externalId,attributes)  VALUES (${id}, ${a})`
+      
+      await client.query(`INSERT INTO your_table_name (externalId,attributes)  VALUES (${id}, ${a})`)
     }else{
-      await client.sql`UPDATE User
+      await client.query(`UPDATE User
       SET attributes = ${a}
-      WHERE externalId=${id};`
+      WHERE externalId=${id};`)
     }
   }
 
-  getClerk();
+  getClerk();*/
  
   console.log(`Webhook with and ID of ${id} and type of ${eventType}`)
   console.log('Webhook body:', body)

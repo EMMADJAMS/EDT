@@ -15,3 +15,5 @@ git push -u origin main
 ~~git add content ~~
 git config --global core.autocrlf true
 
+
+const fs = config.sslcert || config.sslkey || config.sslrootcert ? require('fs') : null

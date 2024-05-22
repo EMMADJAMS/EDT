@@ -12,11 +12,11 @@ const Togglesidebare = () => {
     }
 
   return (
-    <div>
-    <button className='mx-3 lg:hidden' type='button' onClick={handleSidebar}>
-        <Image src={'/hamberguer-icon.png'} alt={'search'} width={'20'} height={"20"} />
-    </button>
-    <div><SideBar side={sideState} setside={setsideState} /></div>
+    <div className=''>
+      <button className='mx-3 lg:hidden' type='button' onClick={handleSidebar}>
+          <Image src={'/hamberguer-icon.png'} alt={'search'} width={'20'} height={"20"} />
+      </button>
+      <div><SideBar side={sideState} setside={setsideState} /></div>
     </div>
   )
 }
